@@ -1,0 +1,123 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="fdiv" style="background-color: blueviolet; padding: 3rem;">
+        First Div
+        <p id="fPara" style="background-color: aqua; padding: 0.8rem; margin-bottom: 0.5rem;">First Para</p>
+        <div id="sdiv" style="background-color: yellowgreen; padding: 3rem;">
+            Second Div
+            <p id="sPara" style="background-color: burlywood; padding: 2rem;">Second Para</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Content Tester with Toggle</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    textarea, .result {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      font-family: monospace;
+      border-radius: 8px;
+    }
+    .preview {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f3f3f3;
+      border: 1px solid #ccc;
+      min-height: 40px;
+    }
+    .output-label {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .toggle-btn {
+      margin: 10px 0;
+      padding: 6px 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🔍 DOM Content Outputs with Toggle</h2>
+
+  <label for="input">Enter any HTML or text:</label>
+  <textarea id="input" rows="3">&lt;b&gt;Hello&lt;/b&gt; <span style="display: none;">World</span></textarea>
+
+  <button onclick="render()">Render & Analyze</button>
+  <button class="toggle-btn" onclick="toggleView()">🔁 Toggle Raw / Rendered View</button>
+
+  <div class="preview" id="box"></div>
+
+  <div class="output-label">innerHTML:</div>
+  <div class="result" id="out-html"></div>
+
+  <div class="output-label">outerHTML:</div>
+  <div class="result" id="out-outer"></div>
+
+  <div class="output-label">textContent:</div>
+  <div class="result" id="out-text"></div>
+
+  <div class="output-label">innerText:</div>
+  <div class="result" id="out-innertext"></div>
+
+  <script>
+    let isRawView = true; // start with raw view
+
+    function render() {
+      const input = document.getElementById('input').value;
+      const box = document.getElementById('box');
+
+      // Update preview
+      box.innerHTML = input;
+
+      // Update output based on toggle state
+      updateOutputView();
+    }
+
+    function toggleView() {
+      isRawView = !isRawView;
+      updateOutputView();
+    }
+
+    function updateOutputView() {
+      const box = document.getElementById('box');
+
+      const html = box.innerHTML;
+      const outer = box.outerHTML;
+      const text = box.textContent;
+      const innerText = box.innerText;
+
+      if (isRawView) {
+        document.getElementById('out-html').textContent = html;
+        document.getElementById('out-outer').textContent = outer;
+      } else {
+        document.getElementById('out-html').innerHTML = html;
+        document.getElementById('out-outer').innerHTML = outer;
+      }
+
+      document.getElementById('out-text').textContent = text;
+      document.getElementById('out-innertext').textContent = innerText;
+    }
+
+    window.onload = render;
+  </script>
+
+</body>
+</html>

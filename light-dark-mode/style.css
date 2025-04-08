@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+.parent-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Light mode */
+.light-mode {
+    background-color: white;
+    color: black;
+  }
+  
+  /* Dark mode */
+  .dark-mode {
+    background-color: black;
+    color: white;
+  }
+
+.change-theme{
+    margin-top: 20px;
+    padding: 7px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+/* Button theme styles */
+.change-theme.light {
+    background-color: black;
+    color: white;
+  }
+  
+.change-theme.dark {
+    background-color: white;
+    color: black;
+}
