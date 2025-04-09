@@ -27,6 +27,12 @@ function fetchRandomQuote(){
     })
 }
 
+// async function displayRandomQuote (){
+//     const response = await fetch("https://dummyjson.com/quotes/random");
+//     const result = await response.json();
+//     displayQuote(result)
+// }
+
 function displayQuote(getQuote){
     console.log("get", getQuote);
     quoteWrapper.innerHTML = `
@@ -42,3 +48,4 @@ fetchRandomQuote();
 refreshBtn.addEventListener("click", ()=>{
     fetchRandomQuote()
 })
+
